@@ -1,0 +1,10 @@
+# Configuração do AcerteAqui Intelligence Hub no Netlify
+
+[build]
+  # Não há etapa de build — site estático + functions
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  # Functions em Node.js
+  node_bundler = "esbuild"
