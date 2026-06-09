@@ -332,12 +332,15 @@
         Histórico
       </a>
 
+      <div class="nav-label" id="adminLabel" style="display:none;">Administração</div>
+      <a class="nav-item" id="usuariosNav" href="usuarios.html" style="display:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Usuários</a>
+
       <div class="sidebar-foot">
         <div class="user-chip">
-          <div class="avatar">AN</div>
+          <div class="avatar" id="meAvatar">··</div>
           <div style="min-width:0;">
-            <div class="user-name">Andre</div>
-            <div class="user-role">Diretoria</div>
+            <div class="user-name" id="meName">—</div>
+            <div class="user-role" id="meRole">—</div>
           </div>
           <button class="logout" id="logoutBtn" title="Sair">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
@@ -354,7 +357,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
         <div class="greeting">
-          <h1>Olá, Andre 👋</h1>
+          <h1 id="hello">Olá 👋</h1>
           <p>Aqui está o panorama da operação comercial hoje.</p>
         </div>
         <div class="search">
@@ -368,18 +371,18 @@
         <div class="card kpi">
           <div class="kpi-top">
             <div class="kpi-icon ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-            <span class="kpi-trend up">+3 esta semana</span>
+            <span class="kpi-trend flat" id="trendClientes">—</span>
           </div>
-          <div class="kpi-value">28</div>
+          <div class="kpi-value" id="kpiClientes">0</div>
           <div class="kpi-label">Clientes na carteira</div>
         </div>
 
         <div class="card kpi">
           <div class="kpi-top">
             <div class="kpi-icon ic-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
-            <span class="kpi-trend up">+12 no mês</span>
+            <span class="kpi-trend flat" id="trendMateriais">—</span>
           </div>
-          <div class="kpi-value">147</div>
+          <div class="kpi-value" id="kpiMateriais">0</div>
           <div class="kpi-label">Materiais gerados por IA</div>
         </div>
 
@@ -388,16 +391,16 @@
             <div class="kpi-icon ic-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><circle cx="12" cy="12" r="4"/></svg></div>
             <span class="kpi-trend flat">aguardando</span>
           </div>
-          <div class="kpi-value">9</div>
+          <div class="kpi-value" id="kpiPropostas">0</div>
           <div class="kpi-label">Propostas em negociação</div>
         </div>
 
         <div class="card kpi">
           <div class="kpi-top">
             <div class="kpi-icon ic-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
-            <span class="kpi-trend up">+4 carteiras</span>
+            <span class="kpi-trend flat" id="trendAnalises">—</span>
           </div>
-          <div class="kpi-value">12</div>
+          <div class="kpi-value" id="kpiAnalises">0</div>
           <div class="kpi-label">Análises de inadimplência</div>
         </div>
       </div>
@@ -462,38 +465,7 @@
             <a class="see-all">Ver tudo</a>
           </div>
           <div class="card activity-card">
-            <div class="activity">
-              <div class="act-dot ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
-              <div class="act-body">
-                <div class="act-text"><b>Proposta comercial</b> gerada para Cooperativa Sicoob</div>
-                <div class="act-meta">há 2 horas · por Andre</div>
-              </div>
-              <span class="act-status st-sent">Enviada</span>
-            </div>
-            <div class="activity">
-              <div class="act-dot ic-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
-              <div class="act-body">
-                <div class="act-text"><b>Análise de carteira</b> concluída para Clínica Vida+</div>
-                <div class="act-meta">há 5 horas · por IA</div>
-              </div>
-              <span class="act-status st-done">Pronta</span>
-            </div>
-            <div class="activity">
-              <div class="act-dot ic-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-              <div class="act-body">
-                <div class="act-text"><b>Novo cliente</b> cadastrado: Varejo Havan</div>
-                <div class="act-meta">ontem · por Comercial</div>
-              </div>
-              <span class="act-status st-done">Ativo</span>
-            </div>
-            <div class="activity">
-              <div class="act-dot ic-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-              <div class="act-body">
-                <div class="act-text"><b>Roteiro de reunião</b> criado para Banco Safra</div>
-                <div class="act-meta">ontem · por Andre</div>
-              </div>
-              <span class="act-status st-draft">Rascunho</span>
-            </div>
+            <div style="text-align:center; color:var(--text-faint); padding:30px 0; font-size:13.5px; line-height:1.6;">Nenhuma atividade ainda.<br>Os materiais que você gerar aparecerão aqui.</div>
           </div>
         </div>
 
@@ -502,10 +474,13 @@
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script>
-    // Navegação ativa (visual por enquanto)
+    // Navegação ativa (visual)
     const items = document.querySelectorAll('.nav-item');
     items.forEach(it => it.addEventListener('click', (e) => {
+      if (it.getAttribute('href')) return; // links navegam normalmente
       e.preventDefault();
       items.forEach(i => i.classList.remove('active'));
       it.classList.add('active');
@@ -521,10 +496,27 @@
     menuToggle.addEventListener('click', openSidebar);
     overlay.addEventListener('click', closeSidebar);
 
-    // Logout (volta ao login)
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      window.location.href = 'index.html';
-    });
+    // Logout real
+    document.getElementById('logoutBtn').addEventListener('click', sair);
+
+    // Proteção + dados do usuário
+    (async () => {
+      const session = await exigirLogin();
+      if (!session) return;
+      const perfil = await meuPerfil();
+
+      document.getElementById('meName').textContent = perfil.nome || 'Usuário';
+      document.getElementById('meRole').textContent = perfil.papel === 'admin' ? 'Administrador' : 'Equipe';
+      document.getElementById('meAvatar').textContent = iniciais(perfil.nome);
+      const primeiro = (perfil.nome || '').split(/\s+/)[0] || '';
+      document.getElementById('hello').textContent = `Olá, ${primeiro} 👋`;
+
+      // mostra área de admin na sidebar
+      if (perfil.papel === 'admin') {
+        document.getElementById('adminLabel').style.display = 'block';
+        document.getElementById('usuariosNav').style.display = 'flex';
+      }
+    })();
   </script>
 
 </body>
